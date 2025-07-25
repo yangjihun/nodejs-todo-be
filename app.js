@@ -1,13 +1,15 @@
-const express = require('express');
-const cors = require("cors");
-require('dotenv').config();
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const indexRouter = require('./routes/index');
+const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
+const indexRouter = require("./routes/index");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+require("dotenv").config();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/api',indexRouter);
+app.use(bodyParser.json());
+
+app.use("/api", indexRouter);
 const mongoURI = process.env.MONGODB_URI_PROD;
 
 mongoose
