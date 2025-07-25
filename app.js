@@ -5,12 +5,13 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index');
 const app = express();
-app.use(cors({
-  origin: 'https://todo-dem.netlify.app', // 또는 '*' 임시 허용
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-}));
-app.options('*', cors());
+const corsOptions = {
+  origin: 'https://todo-dem.netlify.app',
+  credentials: true,
+};
+app.use(cors(corsOptions));
+
+app.options('*', cors(corsOptions));
 app.use(bodyParser.json());
 app.use('/api',indexRouter);
 const mongoURI = process.env.MONGODB_URI_PROD;
