@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index');
 const app = express();
 app.use(cors());
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api',indexRouter);
 const mongoURI = process.env.MONGODB_URI_PROD;
 
