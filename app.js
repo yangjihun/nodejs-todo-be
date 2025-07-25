@@ -5,13 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index');
 const app = express();
-const corsOptions = {
-  origin: 'https://todo-dem.netlify.app',
-  credentials: true,
-};
-app.use(cors(corsOptions));
-
-app.options('*', cors(corsOptions));
+app.use(cors());
 app.use(bodyParser.json());
 app.use('/api',indexRouter);
 const mongoURI = process.env.MONGODB_URI_PROD;
