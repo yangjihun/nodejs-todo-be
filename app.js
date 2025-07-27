@@ -23,7 +23,7 @@ mongoose
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log("server on")
+    console.log("server on");
 });
 
 // 1. 회원가입
@@ -35,3 +35,9 @@ app.listen(PORT, () => {
 // 2. 모델
 // 3. 데이터를 저장 (이미 가입된 유저 유무, 패스워드 암호화)
 // 4. 응답을 보낸다
+
+// 2. 로그인
+// 이메일 패스워드를 입력해서 보냄
+// 데이터베이스에 해당 이메일과 패스워드를 가진 유저가 있는지 확인
+// 없으면 로그인 실패
+// 있으면 유저정보 + 토큰
