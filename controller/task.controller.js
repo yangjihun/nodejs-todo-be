@@ -32,7 +32,7 @@ taskController.updateTask = async(req,res) => {
         await task.save();
         res.status(200).json({status:'ok',data:task});
     } catch (err) {
-        res.status(400).json({status:'fail', error:err});
+        res.status(400).json({status:'fail', err:err.message});
     }
 }
 
